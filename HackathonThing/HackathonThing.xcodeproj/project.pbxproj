@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4EA518125032DBA964DB122E /* libPods-HackathonThing.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 477F9DEACCE2A71EA06304B2 /* libPods-HackathonThing.a */; };
+		7E0D19D31C5937FA00F11FD1 /* HTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E0D19D21C5937FA00F11FD1 /* HTTPClient.m */; };
 		7EB98A921C59289C004067C5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB98A911C59289C004067C5 /* main.m */; };
 		7EB98A951C59289C004067C5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB98A941C59289C004067C5 /* AppDelegate.m */; };
 		7EB98A981C59289C004067C5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB98A971C59289C004067C5 /* ViewController.m */; };
@@ -35,6 +37,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		194EBA3F74AC789E6F5BDBE2 /* Pods-HackathonThing.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackathonThing.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HackathonThing/Pods-HackathonThing.debug.xcconfig"; sourceTree = "<group>"; };
+		477F9DEACCE2A71EA06304B2 /* libPods-HackathonThing.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HackathonThing.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E0D19D11C5937FA00F11FD1 /* HTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPClient.h; sourceTree = "<group>"; };
+		7E0D19D21C5937FA00F11FD1 /* HTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPClient.m; sourceTree = "<group>"; };
 		7EB98A8D1C59289C004067C5 /* HackathonThing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackathonThing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EB98A911C59289C004067C5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7EB98A931C59289C004067C5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -51,6 +57,7 @@
 		7EB98AB11C59289C004067C5 /* HackathonThingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HackathonThingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EB98AB51C59289C004067C5 /* HackathonThingUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HackathonThingUITests.m; sourceTree = "<group>"; };
 		7EB98AB71C59289C004067C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A50C47E472831B5ED248D5A6 /* Pods-HackathonThing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HackathonThing.release.xcconfig"; path = "Pods/Target Support Files/Pods-HackathonThing/Pods-HackathonThing.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4EA518125032DBA964DB122E /* libPods-HackathonThing.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +93,8 @@
 				7EB98AA91C59289C004067C5 /* HackathonThingTests */,
 				7EB98AB41C59289C004067C5 /* HackathonThingUITests */,
 				7EB98A8E1C59289C004067C5 /* Products */,
+				ABC9853F545E5446E4322350 /* Pods */,
+				998BB6CB835F0EDE355C7B9C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,6 +111,8 @@
 		7EB98A8F1C59289C004067C5 /* HackathonThing */ = {
 			isa = PBXGroup;
 			children = (
+				7E0D19D11C5937FA00F11FD1 /* HTTPClient.h */,
+				7E0D19D21C5937FA00F11FD1 /* HTTPClient.m */,
 				7EB98A931C59289C004067C5 /* AppDelegate.h */,
 				7EB98A941C59289C004067C5 /* AppDelegate.m */,
 				7EB98A961C59289C004067C5 /* ViewController.h */,
@@ -140,6 +152,23 @@
 			path = HackathonThingUITests;
 			sourceTree = "<group>";
 		};
+		998BB6CB835F0EDE355C7B9C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				477F9DEACCE2A71EA06304B2 /* libPods-HackathonThing.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ABC9853F545E5446E4322350 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				194EBA3F74AC789E6F5BDBE2 /* Pods-HackathonThing.debug.xcconfig */,
+				A50C47E472831B5ED248D5A6 /* Pods-HackathonThing.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -147,9 +176,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7EB98ABA1C59289C004067C5 /* Build configuration list for PBXNativeTarget "HackathonThing" */;
 			buildPhases = (
+				111C5187ED2630AB11865394 /* Check Pods Manifest.lock */,
 				7EB98A891C59289C004067C5 /* Sources */,
 				7EB98A8A1C59289C004067C5 /* Frameworks */,
 				7EB98A8B1C59289C004067C5 /* Resources */,
+				DD8CDEA22B46ACCAF700E60F /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -265,6 +296,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		111C5187ED2630AB11865394 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DD8CDEA22B46ACCAF700E60F /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HackathonThing/Pods-HackathonThing-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7EB98A891C59289C004067C5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -272,6 +336,7 @@
 			files = (
 				7EB98A981C59289C004067C5 /* ViewController.m in Sources */,
 				7EB98A951C59289C004067C5 /* AppDelegate.m in Sources */,
+				7E0D19D31C5937FA00F11FD1 /* HTTPClient.m in Sources */,
 				7EB98A921C59289C004067C5 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -411,6 +476,7 @@
 		};
 		7EB98ABB1C59289C004067C5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 194EBA3F74AC789E6F5BDBE2 /* Pods-HackathonThing.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = HackathonThing/Info.plist;
@@ -422,6 +488,7 @@
 		};
 		7EB98ABC1C59289C004067C5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A50C47E472831B5ED248D5A6 /* Pods-HackathonThing.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = HackathonThing/Info.plist;
@@ -498,6 +565,7 @@
 				7EB98ABC1C59289C004067C5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7EB98ABD1C59289C004067C5 /* Build configuration list for PBXNativeTarget "HackathonThingTests" */ = {
 			isa = XCConfigurationList;
@@ -506,6 +574,7 @@
 				7EB98ABF1C59289C004067C5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7EB98AC01C59289C004067C5 /* Build configuration list for PBXNativeTarget "HackathonThingUITests" */ = {
 			isa = XCConfigurationList;
@@ -514,6 +583,7 @@
 				7EB98AC21C59289C004067C5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

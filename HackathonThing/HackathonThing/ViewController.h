@@ -10,6 +10,10 @@
 
 @interface ViewController : UIViewController
 
+@property (weak) UITextField *loginTextField;
+@property (weak) UITextField *passwordTextField;
+@property (weak) UIButton *loginButton;
+@property (nonatomic, assign) BOOL viewMovedUp;
 
 @end
 
