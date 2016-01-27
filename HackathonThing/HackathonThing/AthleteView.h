@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AthleteView : UIScrollView
+@interface AthleteView : UIView
+
+
 
 @end

@@ -22,9 +22,28 @@
         //[requestSerializer setValue:[[BRHTTPClient sharedClient] authToken] forHTTPHeaderField:@"auth_token"];
         sharedClient.requestSerializer = requestSerializer;
         sharedClient.responseSerializer =[[AFJSONResponseSerializer alloc] init];
+        NSString *auth = [[NSUserDefaults standardUserDefaults] objectForKey:@"auth-token"];
+        if(auth) {
+            [sharedClient setAuthToken:auth];
+        }
     }
-    
     return sharedClient;
+}
+
+- (NSDictionary *)paramDictForParams:(NSDictionary *)params {
+    if(!self.authToken) return params;
+    if(!params) params = [[NSDictionary alloc] init];
+    NSMutableDictionary *paramDict = [[NSMutableDictionary alloc] initWithDictionary:params];
+    [paramDict setObject:self.authToken forKey:@"auth-token"];
+    NSLog(@"%@", paramDict);
+    return paramDict;
+}
+
+- (void)setAuthToken:(NSString *)authToken {
+    _authToken = authToken;
+    if(authToken) {
+        [[NSUserDefaults standardUserDefaults] setObject:authToken forKey:@"auth-token"];
+    }
 }
 
 @end

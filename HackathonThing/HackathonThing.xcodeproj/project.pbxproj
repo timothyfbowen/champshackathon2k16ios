@@ -20,6 +20,7 @@
 		7E0D19E91C59555300F11FD1 /* Rick.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E0D19E11C59555300F11FD1 /* Rick.png */; };
 		7E0D19EA1C59555300F11FD1 /* Snuffles.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E0D19E21C59555300F11FD1 /* Snuffles.png */; };
 		7E0D19ED1C5955B400F11FD1 /* AthleteModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E0D19EC1C5955B400F11FD1 /* AthleteModel.m */; };
+		7EB30EA41C597B3F00E4F298 /* NCSABG.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7EB30EA31C597B3F00E4F298 /* NCSABG.jpg */; };
 		7EB98A921C59289C004067C5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB98A911C59289C004067C5 /* main.m */; };
 		7EB98A951C59289C004067C5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB98A941C59289C004067C5 /* AppDelegate.m */; };
 		7EB98A981C59289C004067C5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB98A971C59289C004067C5 /* ViewController.m */; };
@@ -66,6 +67,7 @@
 		7E0D19E21C59555300F11FD1 /* Snuffles.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Snuffles.png; sourceTree = "<group>"; };
 		7E0D19EB1C5955B400F11FD1 /* AthleteModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AthleteModel.h; sourceTree = "<group>"; };
 		7E0D19EC1C5955B400F11FD1 /* AthleteModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AthleteModel.m; sourceTree = "<group>"; };
+		7EB30EA31C597B3F00E4F298 /* NCSABG.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NCSABG.jpg; sourceTree = "<group>"; };
 		7EB98A8D1C59289C004067C5 /* HackathonThing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackathonThing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EB98A911C59289C004067C5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7EB98A931C59289C004067C5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 		7E0D19DA1C59555300F11FD1 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				7EB30EA31C597B3F00E4F298 /* NCSABG.jpg */,
 				7E0D19DB1C59555300F11FD1 /* Birdman.png */,
 				7E0D19DC1C59555300F11FD1 /* Meeseeks.png */,
 				7E0D19DD1C59555300F11FD1 /* Morty.png */,
@@ -332,6 +335,7 @@
 				7E0D19E61C59555300F11FD1 /* MrGoldenfold.png in Resources */,
 				7E0D19E31C59555300F11FD1 /* Birdman.png in Resources */,
 				7E0D19E81C59555300F11FD1 /* PoopyButthole.png in Resources */,
+				7EB30EA41C597B3F00E4F298 /* NCSABG.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

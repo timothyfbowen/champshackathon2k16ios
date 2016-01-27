@@ -7,6 +7,8 @@
 //
 
 #import "AthleteView.h"
+#import "AthleteModel.h"
+#import <AFNetworking/AFNetworking.h>
 
 @implementation AthleteView
 
@@ -17,5 +19,19 @@
     // Drawing code
 }
 */
+
+- (id)initWithAthlete:(AthleteModel *)athlete {
+    if (self = [super init]) {
+        
+    }
+    return self;
+}
+
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    UIImageView *bg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"NCSABG.jpg"]];
+    [self addSubview:bg];
+}
 
 @end

@@ -22,5 +22,7 @@
 @property (strong) NSString *state;
 @property (strong) NSString *highSchool;
 @property (strong) NSNumber *starRating;
+@property (strong) NSString *heightString;
+@property (strong) NSString *weightString;
 
 @end

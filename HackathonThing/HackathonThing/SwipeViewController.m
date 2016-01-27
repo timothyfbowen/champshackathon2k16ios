@@ -8,9 +8,14 @@
 
 #import "SwipeViewController.h"
 #import <MDCSwipeToChoose/MDCSwipeToChoose.h>
+#import "HTTPClient.h"
+#import <SVProgressHud/SVProgressHud.h>
 
 
 @interface SwipeViewController ()
+
+@property (strong) NSArray *clientIDs;
+@property (assign) NSInteger lastIndex;
 
 @end
 
@@ -18,29 +23,43 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationController.navigationBarHidden = YES;
     
     // You can customize MDCSwipeToChooseView using MDCSwipeToChooseViewOptions.
     MDCSwipeToChooseViewOptions *options = [MDCSwipeToChooseViewOptions new];
-    options.likedText = @"Pro!";
+    options.likedText = @"Dank";
     options.likedColor = [UIColor blueColor];
-    options.nopeText = @"Rookie";
+    options.nopeText = @"Stale";
     options.onPan = ^(MDCPanState *state){
         if (state.thresholdRatio == 1.f && state.direction == MDCSwipeDirectionLeft) {
             NSLog(@"Let go now to delete the photo!");
         }
     };
-    
-    for (int i = 0; i < 30; i++) {
-        MDCSwipeToChooseView *view = [[MDCSwipeToChooseView alloc] initWithFrame:self.view.bounds
-                                                                     options:options];
-        view.imageView.image = [UIImage imageNamed:@"photo"];
-        view.backgroundColor = [SwipeViewController randomColor];
-        [self.view addSubview:view];
-    }
+    [self getAthletes];
+}
+
+- (void)getAthletes {
+    [[HTTPClient sharedClient] GET:@"/api/mobile/clients/573275" parameters:[[HTTPClient sharedClient] paramDictForParams:nil] success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSLog(@"%@", responseObject);
+        NSNumber *clientID = [[responseObject objectForKey:@"client_ids"] objectAtIndex:0];
+        NSDictionary *dict = [NSDictionary dictionaryWithObject:[NSNumber numberWithInteger:53] forKey:@"coach-id"];
+        NSDictionary *paramDict = [[HTTPClient sharedClient] paramDictForParams:dict];
+        [[HTTPClient sharedClient] GET:[NSString stringWithFormat:@"http://qa.ncsasports.org:80/api/mobile/client/%@", clientID] parameters:paramDict success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+            self.clientIDs = [responseObject objectForKey:@"client_ids"];
+            NSLog(@"%@", responseObject);
+            [self populateViews];
+        } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+            NSLog(@"%@", [error localizedDescription]);
+        }];
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        NSLog(@"%@", [error localizedDescription]);
+        
+    }];
 }
 
 - (NSArray *)fakeAthletes {
     NSMutableArray *array = [[NSMutableArray alloc] init];
+    return array;
 }
 
 #pragma mark - MDCSwipeToChooseDelegate Callbacks
@@ -64,6 +83,10 @@
     }
 }
 
+- (void)populateViews {
+    
+}
+
 // This is called then a user swipes the view fully left or right.
 - (void)view:(UIView *)view wasChosenWithDirection:(MDCSwipeDirection)direction {
     if (direction == MDCSwipeDirectionLeft) {
@@ -71,6 +94,11 @@
     } else {
         NSLog(@"Photo saved!");
     }
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"auth-token"];
+    [[HTTPClient sharedClient] setAuthToken:nil];
 }
 
 - (void)didReceiveMemoryWarning {

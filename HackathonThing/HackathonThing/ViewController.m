@@ -11,6 +11,7 @@
 #import "HTTPClient.h"
 #import <MDCSwipeToChoose/MDCSwipeToChoose.h>
 #import "SwipeViewController.h"
+#import "AppDelegate.h"
 
 @interface ViewController ()
 
@@ -28,6 +29,8 @@
     UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(20, height, self.view.frame.size.width - 40, 30)];
     //textField.backgroundColor = [UIColor redColor];
     textField.borderStyle = UITextBorderStyleRoundedRect;
+    textField.autocapitalizationType = UITextAutocapitalizationTypeNone;
+    textField.autocorrectionType = UITextAutocorrectionTypeNo;
     [self.view addSubview:textField];
     self.loginTextField = textField;
     height += add;
@@ -35,6 +38,9 @@
     UITextField *password = [[UITextField alloc] initWithFrame:CGRectMake(20, height, self.view.frame.size.width - 40, 30)];
     [self.view addSubview:password];
     password.borderStyle = UITextBorderStyleRoundedRect;
+    password.autocapitalizationType = UITextAutocapitalizationTypeNone;
+    password.autocorrectionType = UITextAutocorrectionTypeNo;
+    password.secureTextEntry = YES;
     self.passwordTextField = password;
     
     height += add;
@@ -44,6 +50,7 @@
     [login setTitle:@"Login" forState:UIControlStateNormal];
     //login.backgroundColor = [UIColor redColor];
     login.titleLabel.textColor = [UIColor blackColor];
+    
     [self.view addSubview:login];
     [login addTarget:self action:@selector(login) forControlEvents:UIControlEventTouchUpInside];
 }
@@ -51,12 +58,13 @@
 - (void)login {
     NSLog(@"loogger or somethign fuuu");
     [self.view resignFirstResponder];
-    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:@"thebuch", @"email_or_username", @"buchner", @"password", nil];
+    NSDictionary *params = [[HTTPClient sharedClient] paramDictForParams:[NSDictionary dictionaryWithObjectsAndKeys:self.loginTextField.text, @"email_or_username", self.passwordTextField.text, @"password", nil]];
     NSLog(@"%@", params);
     [[HTTPClient sharedClient] POST:@"api/mobile/session" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"%@", responseObject);
         NSLog(@"Success!!!");
-        [self.navigationController pushViewController:[[SwipeViewController alloc] init] animated:YES];
+        [[HTTPClient sharedClient] setAuthToken:[responseObject objectForKey:@"auth_token"]];
+        [self pushMainView];
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
         NSLog(@"lol u suck");
         NSLog(@"%@", [error localizedDescription]);
@@ -66,6 +74,10 @@
     //NSString *login = self.loginTextField.text;
     
 }
+- (void)pushMainView {
+    [self.navigationController pushViewController:[[SwipeViewController alloc] init] animated:YES];
+}
+
 #define kOFFSET_FOR_KEYBOARD 220.0
 
 -(void)keyboardWillShow {
@@ -137,6 +149,9 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    if([[HTTPClient sharedClient] authToken]) {
+        [self pushMainView];
+    }
     [super viewWillAppear:animated];
     // register for keyboard notifications
     [[NSNotificationCenter defaultCenter] addObserver:self

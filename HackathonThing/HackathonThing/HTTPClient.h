@@ -9,6 +9,9 @@
 #import "AFHTTPRequestOperationManager.h"
 
 @interface HTTPClient : AFHTTPRequestOperationManager
+
+@property (strong, nonatomic) NSString *authToken;
 + (HTTPClient *)sharedClient;
+- (NSDictionary *)paramDictForParams:(NSDictionary *)params;
 
 @end
