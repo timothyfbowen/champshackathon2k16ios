@@ -9,6 +9,17 @@
 /* Begin PBXBuildFile section */
 		4EA518125032DBA964DB122E /* libPods-HackathonThing.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 477F9DEACCE2A71EA06304B2 /* libPods-HackathonThing.a */; };
 		7E0D19D31C5937FA00F11FD1 /* HTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E0D19D21C5937FA00F11FD1 /* HTTPClient.m */; };
+		7E0D19D61C594CC800F11FD1 /* SwipeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E0D19D51C594CC800F11FD1 /* SwipeViewController.m */; };
+		7E0D19D91C59529800F11FD1 /* AthleteView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E0D19D81C59529800F11FD1 /* AthleteView.m */; };
+		7E0D19E31C59555300F11FD1 /* Birdman.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E0D19DB1C59555300F11FD1 /* Birdman.png */; };
+		7E0D19E41C59555300F11FD1 /* Meeseeks.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E0D19DC1C59555300F11FD1 /* Meeseeks.png */; };
+		7E0D19E51C59555300F11FD1 /* Morty.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E0D19DD1C59555300F11FD1 /* Morty.png */; };
+		7E0D19E61C59555300F11FD1 /* MrGoldenfold.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E0D19DE1C59555300F11FD1 /* MrGoldenfold.png */; };
+		7E0D19E71C59555300F11FD1 /* MuscleRick.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E0D19DF1C59555300F11FD1 /* MuscleRick.png */; };
+		7E0D19E81C59555300F11FD1 /* PoopyButthole.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E0D19E01C59555300F11FD1 /* PoopyButthole.png */; };
+		7E0D19E91C59555300F11FD1 /* Rick.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E0D19E11C59555300F11FD1 /* Rick.png */; };
+		7E0D19EA1C59555300F11FD1 /* Snuffles.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E0D19E21C59555300F11FD1 /* Snuffles.png */; };
+		7E0D19ED1C5955B400F11FD1 /* AthleteModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E0D19EC1C5955B400F11FD1 /* AthleteModel.m */; };
 		7EB98A921C59289C004067C5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB98A911C59289C004067C5 /* main.m */; };
 		7EB98A951C59289C004067C5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB98A941C59289C004067C5 /* AppDelegate.m */; };
 		7EB98A981C59289C004067C5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB98A971C59289C004067C5 /* ViewController.m */; };
@@ -41,6 +52,20 @@
 		477F9DEACCE2A71EA06304B2 /* libPods-HackathonThing.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HackathonThing.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E0D19D11C5937FA00F11FD1 /* HTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPClient.h; sourceTree = "<group>"; };
 		7E0D19D21C5937FA00F11FD1 /* HTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPClient.m; sourceTree = "<group>"; };
+		7E0D19D41C594CC800F11FD1 /* SwipeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SwipeViewController.h; sourceTree = "<group>"; };
+		7E0D19D51C594CC800F11FD1 /* SwipeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SwipeViewController.m; sourceTree = "<group>"; };
+		7E0D19D71C59529800F11FD1 /* AthleteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AthleteView.h; sourceTree = "<group>"; };
+		7E0D19D81C59529800F11FD1 /* AthleteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AthleteView.m; sourceTree = "<group>"; };
+		7E0D19DB1C59555300F11FD1 /* Birdman.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Birdman.png; sourceTree = "<group>"; };
+		7E0D19DC1C59555300F11FD1 /* Meeseeks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Meeseeks.png; sourceTree = "<group>"; };
+		7E0D19DD1C59555300F11FD1 /* Morty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Morty.png; sourceTree = "<group>"; };
+		7E0D19DE1C59555300F11FD1 /* MrGoldenfold.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MrGoldenfold.png; sourceTree = "<group>"; };
+		7E0D19DF1C59555300F11FD1 /* MuscleRick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MuscleRick.png; sourceTree = "<group>"; };
+		7E0D19E01C59555300F11FD1 /* PoopyButthole.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PoopyButthole.png; sourceTree = "<group>"; };
+		7E0D19E11C59555300F11FD1 /* Rick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Rick.png; sourceTree = "<group>"; };
+		7E0D19E21C59555300F11FD1 /* Snuffles.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Snuffles.png; sourceTree = "<group>"; };
+		7E0D19EB1C5955B400F11FD1 /* AthleteModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AthleteModel.h; sourceTree = "<group>"; };
+		7E0D19EC1C5955B400F11FD1 /* AthleteModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AthleteModel.m; sourceTree = "<group>"; };
 		7EB98A8D1C59289C004067C5 /* HackathonThing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackathonThing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EB98A911C59289C004067C5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7EB98A931C59289C004067C5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -86,6 +111,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7E0D19DA1C59555300F11FD1 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				7E0D19DB1C59555300F11FD1 /* Birdman.png */,
+				7E0D19DC1C59555300F11FD1 /* Meeseeks.png */,
+				7E0D19DD1C59555300F11FD1 /* Morty.png */,
+				7E0D19DE1C59555300F11FD1 /* MrGoldenfold.png */,
+				7E0D19DF1C59555300F11FD1 /* MuscleRick.png */,
+				7E0D19E01C59555300F11FD1 /* PoopyButthole.png */,
+				7E0D19E11C59555300F11FD1 /* Rick.png */,
+				7E0D19E21C59555300F11FD1 /* Snuffles.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		7EB98A841C59289C004067C5 = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +151,8 @@
 		7EB98A8F1C59289C004067C5 /* HackathonThing */ = {
 			isa = PBXGroup;
 			children = (
+				7E0D19D41C594CC800F11FD1 /* SwipeViewController.h */,
+				7E0D19D51C594CC800F11FD1 /* SwipeViewController.m */,
 				7E0D19D11C5937FA00F11FD1 /* HTTPClient.h */,
 				7E0D19D21C5937FA00F11FD1 /* HTTPClient.m */,
 				7EB98A931C59289C004067C5 /* AppDelegate.h */,
@@ -122,6 +164,10 @@
 				7EB98A9E1C59289C004067C5 /* LaunchScreen.storyboard */,
 				7EB98AA11C59289C004067C5 /* Info.plist */,
 				7EB98A901C59289C004067C5 /* Supporting Files */,
+				7E0D19D71C59529800F11FD1 /* AthleteView.h */,
+				7E0D19D81C59529800F11FD1 /* AthleteView.m */,
+				7E0D19EB1C5955B400F11FD1 /* AthleteModel.h */,
+				7E0D19EC1C5955B400F11FD1 /* AthleteModel.m */,
 			);
 			path = HackathonThing;
 			sourceTree = "<group>";
@@ -129,6 +175,7 @@
 		7EB98A901C59289C004067C5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7E0D19DA1C59555300F11FD1 /* Images */,
 				7EB98A911C59289C004067C5 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -274,9 +321,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E0D19EA1C59555300F11FD1 /* Snuffles.png in Resources */,
 				7EB98AA01C59289C004067C5 /* LaunchScreen.storyboard in Resources */,
 				7EB98A9D1C59289C004067C5 /* Assets.xcassets in Resources */,
+				7E0D19E91C59555300F11FD1 /* Rick.png in Resources */,
+				7E0D19E41C59555300F11FD1 /* Meeseeks.png in Resources */,
+				7E0D19E71C59555300F11FD1 /* MuscleRick.png in Resources */,
+				7E0D19E51C59555300F11FD1 /* Morty.png in Resources */,
 				7EB98A9B1C59289C004067C5 /* Main.storyboard in Resources */,
+				7E0D19E61C59555300F11FD1 /* MrGoldenfold.png in Resources */,
+				7E0D19E31C59555300F11FD1 /* Birdman.png in Resources */,
+				7E0D19E81C59555300F11FD1 /* PoopyButthole.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,8 +390,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				7EB98A981C59289C004067C5 /* ViewController.m in Sources */,
+				7E0D19ED1C5955B400F11FD1 /* AthleteModel.m in Sources */,
 				7EB98A951C59289C004067C5 /* AppDelegate.m in Sources */,
 				7E0D19D31C5937FA00F11FD1 /* HTTPClient.m in Sources */,
+				7E0D19D61C594CC800F11FD1 /* SwipeViewController.m in Sources */,
+				7E0D19D91C59529800F11FD1 /* AthleteView.m in Sources */,
 				7EB98A921C59289C004067C5 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

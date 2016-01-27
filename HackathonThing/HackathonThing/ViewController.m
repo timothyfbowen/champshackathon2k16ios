@@ -9,6 +9,8 @@
 #import "ViewController.h"
 #import <AFNetworking/AFNetworking.h>
 #import "HTTPClient.h"
+#import <MDCSwipeToChoose/MDCSwipeToChoose.h>
+#import "SwipeViewController.h"
 
 @interface ViewController ()
 
@@ -19,10 +21,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    
+    self.title = @"Login";
     double height = (self.view.frame.size.height / 3.0) * 2.0;
     double add = 40.0;
-    
+    self.view.backgroundColor = [UIColor whiteColor];
     UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(20, height, self.view.frame.size.width - 40, 30)];
     //textField.backgroundColor = [UIColor redColor];
     textField.borderStyle = UITextBorderStyleRoundedRect;
@@ -54,9 +56,12 @@
     [[HTTPClient sharedClient] POST:@"api/mobile/session" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"%@", responseObject);
         NSLog(@"Success!!!");
+        [self.navigationController pushViewController:[[SwipeViewController alloc] init] animated:YES];
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
         NSLog(@"lol u suck");
         NSLog(@"%@", [error localizedDescription]);
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[NSString stringWithFormat:@"%@", [error localizedDescription]] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
     }];
     //NSString *login = self.loginTextField.text;
     
