@@ -36,9 +36,9 @@
     self.navigationController.navigationBarHidden = YES;
     // You can customize MDCSwipeToChooseView using MDCSwipeToChooseViewOptions.
     MDCSwipeToChooseViewOptions *options = [MDCSwipeToChooseViewOptions new];
-    options.likedText = @"Dank";
+    options.likedText = @"Pro!";
     options.likedColor = [UIColor blueColor];
-    options.nopeText = @"Stale";
+    options.nopeText = @"Rookie";
     options.delegate = self;
     options.onPan = ^(MDCPanState *state){
         if (state.thresholdRatio == 1.f && state.direction == MDCSwipeDirectionLeft) {
