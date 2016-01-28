@@ -9,7 +9,6 @@
 #import "SwipeViewController.h"
 #import "HTTPClient.h"
 #import <SVProgressHud/SVProgressHud.h>
-
 #import "AthleteModel.h"
 #import "AthleteView.h"
 
@@ -23,6 +22,13 @@
 @end
 
 @implementation SwipeViewController
+
+- (id) init {
+    if(self = [super init]){
+        self.title = @"Prospects";
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -157,11 +163,6 @@
         NSLog(@"%@", [error localizedDescription]);
         [SVProgressHUD dismiss];
     }];
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"auth-token"];
-    [[HTTPClient sharedClient] setAuthToken:nil];
 }
 
 - (void)didReceiveMemoryWarning {

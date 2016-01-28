@@ -21,6 +21,7 @@
 		7E0D19EA1C59555300F11FD1 /* Snuffles.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E0D19E21C59555300F11FD1 /* Snuffles.png */; };
 		7E0D19ED1C5955B400F11FD1 /* AthleteModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E0D19EC1C5955B400F11FD1 /* AthleteModel.m */; };
 		7EB30EA41C597B3F00E4F298 /* NCSABG.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7EB30EA31C597B3F00E4F298 /* NCSABG.jpg */; };
+		7EB30EA81C5AA2E400E4F298 /* LikedTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB30EA71C5AA2E400E4F298 /* LikedTableViewController.m */; };
 		7EB98A921C59289C004067C5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB98A911C59289C004067C5 /* main.m */; };
 		7EB98A951C59289C004067C5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB98A941C59289C004067C5 /* AppDelegate.m */; };
 		7EB98A981C59289C004067C5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB98A971C59289C004067C5 /* ViewController.m */; };
@@ -68,6 +69,8 @@
 		7E0D19EB1C5955B400F11FD1 /* AthleteModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AthleteModel.h; sourceTree = "<group>"; };
 		7E0D19EC1C5955B400F11FD1 /* AthleteModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AthleteModel.m; sourceTree = "<group>"; };
 		7EB30EA31C597B3F00E4F298 /* NCSABG.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NCSABG.jpg; sourceTree = "<group>"; };
+		7EB30EA61C5AA2E400E4F298 /* LikedTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LikedTableViewController.h; sourceTree = "<group>"; };
+		7EB30EA71C5AA2E400E4F298 /* LikedTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LikedTableViewController.m; sourceTree = "<group>"; };
 		7EB98A8D1C59289C004067C5 /* HackathonThing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HackathonThing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EB98A911C59289C004067C5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7EB98A931C59289C004067C5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -171,6 +174,8 @@
 				7E0D19D81C59529800F11FD1 /* AthleteView.m */,
 				7E0D19EB1C5955B400F11FD1 /* AthleteModel.h */,
 				7E0D19EC1C5955B400F11FD1 /* AthleteModel.m */,
+				7EB30EA61C5AA2E400E4F298 /* LikedTableViewController.h */,
+				7EB30EA71C5AA2E400E4F298 /* LikedTableViewController.m */,
 			);
 			path = HackathonThing;
 			sourceTree = "<group>";
@@ -398,6 +403,7 @@
 				7EB98A951C59289C004067C5 /* AppDelegate.m in Sources */,
 				7E0D19D31C5937FA00F11FD1 /* HTTPClient.m in Sources */,
 				7E0D19D61C594CC800F11FD1 /* SwipeViewController.m in Sources */,
+				7EB30EA81C5AA2E400E4F298 /* LikedTableViewController.m in Sources */,
 				7E0D19D91C59529800F11FD1 /* AthleteView.m in Sources */,
 				7EB98A921C59289C004067C5 /* main.m in Sources */,
 			);

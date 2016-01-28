@@ -17,5 +17,6 @@
 
 //- (id)initWithAthlete:(AthleteModel *)athlete;
 - (id)initWithAthlete:(AthleteModel *)athlete andOptions:(MDCSwipeToChooseViewOptions *)options;
++ (UIImage *)getRandomImage ;
 
 @end

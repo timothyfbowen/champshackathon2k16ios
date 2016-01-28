@@ -18,9 +18,9 @@
             [prunedDictionary setObject:[dict objectForKey:key] forKey:key];
     }
     if(self = [super init]) {
-        NSLog(@"%@", prunedDictionary);
         self.clientID = [prunedDictionary objectForKey:@"client_id"];
         self.photoURL = [prunedDictionary objectForKey:@"thumb_url"];
+        self.photoURL = [self.photoURL stringByReplacingOccurrencesOfString:@"qa." withString:@"recruit-match."];
         self.firstName = [prunedDictionary objectForKey:@"first_name"];
         self.lastName = [prunedDictionary objectForKey:@"last_name"];
         self.gradYear = [prunedDictionary objectForKey:@"graduation_year"];

@@ -12,6 +12,7 @@
 #import <MDCSwipeToChoose/MDCSwipeToChoose.h>
 #import "SwipeViewController.h"
 #import "AppDelegate.h"
+#import "LikedTableViewController.h"
 
 @interface ViewController ()
 
@@ -61,6 +62,7 @@
     [[HTTPClient sharedClient] POST:@"api/mobile/coach_session" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [[HTTPClient sharedClient] setAuthToken:[responseObject objectForKey:@"auth_token"]];
         [self pushMainView];
+        NSLog(@"%@", responseObject);
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
         NSLog(@"%@", [error localizedDescription]);
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[NSString stringWithFormat:@"%@", [error localizedDescription]] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
@@ -70,7 +72,10 @@
     
 }
 - (void)pushMainView {
-    [self.navigationController pushViewController:[[SwipeViewController alloc] init] animated:YES];
+    UITabBarController *tabbarController = [[UITabBarController alloc] init];
+    tabbarController.viewControllers = [NSArray arrayWithObjects:[[SwipeViewController alloc] init], [[LikedTableViewController alloc] init], nil];
+    //[self.navigationController pushViewController:[[SwipeViewController alloc] init] animated:YES];
+    [self.navigationController pushViewController:tabbarController animated:YES];
 }
 
 #define kOFFSET_FOR_KEYBOARD 220.0
