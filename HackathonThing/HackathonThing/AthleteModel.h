@@ -24,5 +24,8 @@
 @property (strong) NSNumber *starRating;
 @property (strong) NSString *heightString;
 @property (strong) NSString *weightString;
+@property (strong) NSNumber *clientID;
+
+- (id)initWithDictionary:(NSDictionary *)dict;
 
 @end

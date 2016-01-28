@@ -6,8 +6,12 @@
 //  Copyright © 2016 Reigning Champs. All rights reserved.
 //
 
+
 #import <UIKit/UIKit.h>
+#import <MDCSwipeToChoose/MDCSwipeToChoose.h>
 
-@interface SwipeViewController : UIViewController
 
+@interface SwipeViewController : UIViewController <MDCSwipeToChooseDelegate>
+
+@property (strong) MDCSwipeToChooseViewOptions *options;
 @end

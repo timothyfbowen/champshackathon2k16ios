@@ -18,6 +18,8 @@
             [prunedDictionary setObject:[dict objectForKey:key] forKey:key];
     }
     if(self = [super init]) {
+        NSLog(@"%@", prunedDictionary);
+        self.clientID = [prunedDictionary objectForKey:@"client_id"];
         self.photoURL = [prunedDictionary objectForKey:@"thumb_url"];
         self.firstName = [prunedDictionary objectForKey:@"first_name"];
         self.lastName = [prunedDictionary objectForKey:@"last_name"];
@@ -26,15 +28,13 @@
         self.height = [prunedDictionary objectForKey:@"height"];
         float feet = [self.height floatValue] / 12.0;
         int inches = [self.height integerValue] % 12;
-        self.heightString = [NSString stringWithFormat:@"%ui' %ui\"", (int)feet, inches];
-        NSLog(@"%@", self.heightString);
+        self.heightString = [NSString stringWithFormat:@"%u' %u\"", (int)feet, inches];
         self.weight = [prunedDictionary objectForKey:@"weight"];
         self.weightString = [NSString stringWithFormat:@"%@ lbs", self.weight];
         self.gpa = [prunedDictionary objectForKey:@"gpa"];
         self.city = [prunedDictionary objectForKey:@"city"];
         self.state = [prunedDictionary objectForKey:@"state"];
         self.highSchool = [prunedDictionary objectForKey:@"high_school"];
-        //self.starRating =
     }
     return self;
 }

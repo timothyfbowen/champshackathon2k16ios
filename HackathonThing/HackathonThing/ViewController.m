@@ -56,17 +56,12 @@
 }
 
 - (void)login {
-    NSLog(@"loogger or somethign fuuu");
     [self.view resignFirstResponder];
     NSDictionary *params = [[HTTPClient sharedClient] paramDictForParams:[NSDictionary dictionaryWithObjectsAndKeys:self.loginTextField.text, @"email_or_username", self.passwordTextField.text, @"password", nil]];
-    NSLog(@"%@", params);
-    [[HTTPClient sharedClient] POST:@"api/mobile/session" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"%@", responseObject);
-        NSLog(@"Success!!!");
+    [[HTTPClient sharedClient] POST:@"api/mobile/coach_session" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [[HTTPClient sharedClient] setAuthToken:[responseObject objectForKey:@"auth_token"]];
         [self pushMainView];
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
-        NSLog(@"lol u suck");
         NSLog(@"%@", [error localizedDescription]);
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[NSString stringWithFormat:@"%@", [error localizedDescription]] delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
@@ -81,7 +76,6 @@
 #define kOFFSET_FOR_KEYBOARD 220.0
 
 -(void)keyboardWillShow {
-    NSLog(@"Keyboard showin");
     // Animate the current view out of the way
     if (self.view.frame.origin.y >= 0)
     {
@@ -99,7 +93,6 @@
 }
 
 -(void)keyboardWillHide {
-    NSLog(@"Keboard hidin");
     if (self.view.frame.origin.y >= 0)
     {
         [self setViewMovedUp:YES];

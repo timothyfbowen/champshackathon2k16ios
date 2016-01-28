@@ -7,9 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MDCSwipeToChoose/MDCSwipeToChoose.h>
 
-@interface AthleteView : UIView
+@class AthleteModel;
 
+@interface AthleteView : MDCSwipeToChooseView
 
+@property (strong) AthleteModel *athlete;
+
+//- (id)initWithAthlete:(AthleteModel *)athlete;
+- (id)initWithAthlete:(AthleteModel *)athlete andOptions:(MDCSwipeToChooseViewOptions *)options;
 
 @end

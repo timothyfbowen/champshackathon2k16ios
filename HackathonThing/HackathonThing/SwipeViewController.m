@@ -7,15 +7,18 @@
 //
 
 #import "SwipeViewController.h"
-#import <MDCSwipeToChoose/MDCSwipeToChoose.h>
 #import "HTTPClient.h"
 #import <SVProgressHud/SVProgressHud.h>
+
+#import "AthleteModel.h"
+#import "AthleteView.h"
 
 
 @interface SwipeViewController ()
 
 @property (strong) NSArray *clientIDs;
 @property (assign) NSInteger lastIndex;
+@property (weak) UIView *bottomView;
 
 @end
 
@@ -23,44 +26,39 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.lastIndex = 0;
     self.navigationController.navigationBarHidden = YES;
-    
     // You can customize MDCSwipeToChooseView using MDCSwipeToChooseViewOptions.
     MDCSwipeToChooseViewOptions *options = [MDCSwipeToChooseViewOptions new];
     options.likedText = @"Dank";
     options.likedColor = [UIColor blueColor];
     options.nopeText = @"Stale";
+    options.delegate = self;
     options.onPan = ^(MDCPanState *state){
         if (state.thresholdRatio == 1.f && state.direction == MDCSwipeDirectionLeft) {
             NSLog(@"Let go now to delete the photo!");
         }
     };
+    self.options = options;
     [self getAthletes];
+    /*
+    for(int i = 0; i < 11; i++) {
+        MDCSwipeToChooseView *view = [[MDCSwipeToChooseView alloc] initWithFrame:self.view.frame options:options];
+        view.backgroundColor = [SwipeViewController randomColor];
+        [self.view addSubview:view];
+    }*/
 }
 
 - (void)getAthletes {
+    [SVProgressHUD show];
     [[HTTPClient sharedClient] GET:@"/api/mobile/clients/573275" parameters:[[HTTPClient sharedClient] paramDictForParams:nil] success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
-        NSLog(@"%@", responseObject);
-        NSNumber *clientID = [[responseObject objectForKey:@"client_ids"] objectAtIndex:0];
-        NSDictionary *dict = [NSDictionary dictionaryWithObject:[NSNumber numberWithInteger:53] forKey:@"coach-id"];
-        NSDictionary *paramDict = [[HTTPClient sharedClient] paramDictForParams:dict];
-        [[HTTPClient sharedClient] GET:[NSString stringWithFormat:@"http://qa.ncsasports.org:80/api/mobile/client/%@", clientID] parameters:paramDict success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
-            self.clientIDs = [responseObject objectForKey:@"client_ids"];
-            NSLog(@"%@", responseObject);
-            [self populateViews];
-        } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
-            NSLog(@"%@", [error localizedDescription]);
-        }];
+        self.clientIDs = [responseObject objectForKey:@"client_ids"];
+        [self populateViews];
     } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
         NSLog(@"%@", [error localizedDescription]);
-        
     }];
 }
 
-- (NSArray *)fakeAthletes {
-    NSMutableArray *array = [[NSMutableArray alloc] init];
-    return array;
-}
 
 #pragma mark - MDCSwipeToChooseDelegate Callbacks
 
@@ -71,6 +69,7 @@
 
 // Sent before a choice is made. Cancel the choice by returning `NO`. Otherwise return `YES`.
 - (BOOL)view:(UIView *)view shouldBeChosenWithDirection:(MDCSwipeDirection)direction {
+    return YES;
     if (direction == MDCSwipeDirectionLeft) {
         return YES;
     } else {
@@ -84,16 +83,62 @@
 }
 
 - (void)populateViews {
-    
+    NSInteger numberOfViews = 25;
+    NSLog(@"%u", self.lastIndex + numberOfViews);
+    NSLog(@"%u", self.lastIndex);
+    NSInteger terminator = self.lastIndex + numberOfViews;
+    __block int successes = 0;
+    for(int i = self.lastIndex; i <= terminator; i++) {
+        if (i >= [self.clientIDs count]) {
+            break;
+        }
+        NSLog(@"%u", i);
+        NSNumber *clientID = [self.clientIDs objectAtIndex:i];
+        self.lastIndex = i;
+        NSDictionary *dict = [NSDictionary dictionaryWithObject:[NSNumber numberWithInteger:53] forKey:@"coach-id"];
+        NSDictionary *paramDict = [[HTTPClient sharedClient] paramDictForParams:dict];
+        
+        [[HTTPClient sharedClient] GET:[NSString stringWithFormat:@"http://qa.ncsasports.org:80/api/mobile/client/%@", clientID] parameters:paramDict success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+            AthleteModel *athlete = [[AthleteModel alloc] initWithDictionary:responseObject];
+            AthleteView *view = [[AthleteView alloc] initWithAthlete:athlete andOptions:self.options];
+            if(self.bottomView == nil) {
+                [self.view addSubview:view];
+            } else {
+                [self.view insertSubview:view belowSubview:self.bottomView];
+            }
+            self.bottomView = view;
+            [SVProgressHUD dismiss];
+            successes += 1;
+        } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+            NSLog(@"%@", [error localizedDescription]);
+            [SVProgressHUD dismiss];
+        }];
+    }
+    [self performSelector:@selector(checkSuccess) withObject:nil afterDelay:3];
+}
+
+- (void)checkSuccess {
+    NSLog(@"%@", [self.view subviews]);
 }
 
 // This is called then a user swipes the view fully left or right.
 - (void)view:(UIView *)view wasChosenWithDirection:(MDCSwipeDirection)direction {
+    AthleteModel *athlete = [(AthleteView *)view athlete];
+    NSString *preference = nil;
     if (direction == MDCSwipeDirectionLeft) {
+        preference = @"no_likey";
         NSLog(@"Photo deleted!");
     } else {
+        preference = @"likey";
         NSLog(@"Photo saved!");
     }
+    NSString *path = [NSString stringWithFormat:@"api/mobile/%@/%@", preference, athlete.clientID];
+    [[HTTPClient sharedClient] POST:path parameters:[[HTTPClient sharedClient] paramDictForParams:nil] success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        NSLog(@"Worked!!!!");
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        NSLog(@"lol that didn't work at all");
+        NSLog(@"%@", [error localizedDescription]);
+    }];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
