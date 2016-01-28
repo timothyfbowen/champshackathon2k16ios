@@ -33,9 +33,11 @@
     UIImageView *bg = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"NCSABG.jpg"]];
     [self addSubview:bg];
     [self sendSubviewToBack:bg];
-    UIImageView *profileImage = [[UIImageView alloc] initWithFrame:CGRectMake(self.frame.size.width / 3.0, 20, self.frame.size.width / 3.0, 150)];
+    NSInteger labelHeightDelta = 30;
+    UIImageView *profileImage = [[UIImageView alloc] initWithFrame:CGRectMake(20, 50, self.frame.size.width - 40, 250)];
+    profileImage.contentMode = UIViewContentModeScaleAspectFit;
     int height = profileImage.frame.size.height + profileImage.frame.origin.y + 20;
-    [profileImage setImageWithURL:[NSURL URLWithString:self.athlete.photoURL]];
+    [profileImage setImageWithURL:[NSURL URLWithString:self.athlete.photoURL] placeholderImage:[self getRandomImage]];
     [self insertSubview:profileImage aboveSubview:bg];
     UILabel *nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, height, self.frame.size.width - 40, 20)];
     nameLabel.textColor = [UIColor whiteColor];
@@ -43,7 +45,7 @@
     nameLabel.adjustsFontSizeToFitWidth = YES;
     nameLabel.textAlignment = NSTextAlignmentCenter;
     [self insertSubview:nameLabel aboveSubview:bg];
-    height += 40;
+    height += labelHeightDelta;
     UILabel *highSchoolLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, height, nameLabel.frame.size.width, 20)];
     highSchoolLabel.textAlignment = NSTextAlignmentCenter;
     highSchoolLabel.textColor = [UIColor whiteColor];
@@ -51,9 +53,19 @@
     
     highSchoolLabel.adjustsFontSizeToFitWidth = YES;
     [self insertSubview:highSchoolLabel aboveSubview:bg];
-                            
+    height += labelHeightDelta;
     
+    UILabel *heightWeightLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, height, nameLabel.frame.size.width, 20)];
+    heightWeightLabel.textAlignment = NSTextAlignmentCenter;
+    heightWeightLabel.textColor = [UIColor whiteColor];
+    heightWeightLabel.text = [NSString stringWithFormat:@"%@, %@ - %@", self.athlete.position, self.athlete.heightString, self.athlete.weightString];
+    [self insertSubview:heightWeightLabel aboveSubview:bg];
     
+}
+
+- (UIImage *)getRandomImage {
+    NSArray *imageNameArray = [NSArray arrayWithObjects:@"Birdman.png", @"Meeseeks.png", @"Morty.png", @"MrGoldenfold.png", @"MuscleRick.png", @"PoopyButthole.png", @"Rick.png", @"Snuffles.png", nil];
+    return [UIImage imageNamed:[imageNameArray objectAtIndex:rand() % 7]];
 }
 
 @end

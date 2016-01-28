@@ -139,6 +139,24 @@
         NSLog(@"lol that didn't work at all");
         NSLog(@"%@", [error localizedDescription]);
     }];
+    self.lastIndex += 1;
+    NSNumber *clientID = [self.clientIDs objectAtIndex:self.lastIndex];
+    NSDictionary *dict = [NSDictionary dictionaryWithObject:[NSNumber numberWithInteger:53] forKey:@"coach-id"];
+    NSDictionary *paramDict = [[HTTPClient sharedClient] paramDictForParams:dict];
+    [[HTTPClient sharedClient] GET:[NSString stringWithFormat:@"http://qa.ncsasports.org:80/api/mobile/client/%@", clientID] parameters:paramDict success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        AthleteModel *athlete = [[AthleteModel alloc] initWithDictionary:responseObject];
+        AthleteView *view = [[AthleteView alloc] initWithAthlete:athlete andOptions:self.options];
+        if(self.bottomView == nil) {
+            [self.view addSubview:view];
+        } else {
+            [self.view insertSubview:view belowSubview:self.bottomView];
+        }
+        self.bottomView = view;
+        [SVProgressHUD dismiss];
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        NSLog(@"%@", [error localizedDescription]);
+        [SVProgressHUD dismiss];
+    }];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
